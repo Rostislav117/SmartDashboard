@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; margin: 0; }
+body { font-family: 'Manrope', 'Inter', system-ui, sans-serif; background: #5f5b55; color: #fff; overscroll-behavior: none; }
+button { font-family: inherit; touch-action: manipulation; }
+
+@layer components {
+  .glass { background: rgba(255,255,255,.18); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.28); }
+  .glass-btn { @apply glass rounded-2xl min-h-[48px] px-4 font-light tracking-wide transition active:scale-95; }
+  .pill-active { background: rgba(255,255,255,.92); color: #4a463f; }
+}
+@keyframes flash { 0%,100% { box-shadow: 0 0 0 0 rgba(217,130,43,0); } 50% { box-shadow: 0 0 0 6px rgba(217,130,43,.55); } }
+.flash { animation: flash 1s ease-in-out 3; }
+@keyframes slidein { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: none; } }
+.slidein { animation: slidein .25s ease-out; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
